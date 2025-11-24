@@ -1,0 +1,130 @@
+OOP
+Object Oriented Programming is a fundamental concept in Python, empowering developers to build modular, maintainable and scalable applications.
+
+OOP is a way of organizing code that uses objects and classes to represent real-world entities and their behavior. In OOP, object has attributes thing that has specific data and can perform certain actions using methods.
+
+Key Features of OOP in Python:
+Organizes code into classes and objects
+Supports encapsulation to group data and methods together
+Enables inheritance for reusability and hierarchy
+Allows polymorphism for flexible method implementation
+Improves modularity, scalability, and maintainability
+
+1. Class
+A class is a collection of objects. Classes are blueprints for creating objects. A class defines a set of attributes and methods that the created objects (instances) can have.
+
+Some points on Python class:
+Classes are created by keyword class.
+Attributes are the variables that belong to a class.
+Attributes are always public and can be accessed using the dot (.) operator. Example: Myclass.Myattribute
+Creating a Class
+Here, class keyword indicates that we are creating a class followed by name of the class (Dog in this case).
+
+Creating a class:
+class Dog:
+    species = "Canine" #class atribut, shared by all instances in this class
+    def __init__(self, name, age):   #initiliazes the name and age attributes when new object is created
+        self.name = name  #instance attribute
+        self.age = age #inst atr
+
+
+An Object is an instance of a Class. It represents a specific implementation of the class and holds its own data.
+
+An object consists of:
+State: It is represented by the attributes and reflects the properties of an object.
+Behavior: It is represented by the methods of an object and reflects the response of an object to other objects.
+Identity: It gives a unique name to an object and enables one object to interact with other objects.
+class Dog:
+    species = "Canine"  # Class attribute
+
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age  # Instance attribute
+
+# Creating an object of the Dog class
+dog1 = Dog("Buddy", 3)
+
+print(dog1.name)
+print(dog1.species)
+
+Self parameter is a reference to the current instance of the class. It allows us to access the
+attributes and methods of the object.
+
+Example: In this example, we create a Dog class with both class and instance attributes,
+then demonstrate how to access them using the self parameter.
+class Dog:
+    species = "Canine"  # Class attribute
+
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age  # Instance attribute
+
+dog1 = Dog("Buddy", 3)  # Create an instance of Dog
+dog2 = Dog("Charlie", 5)  # Create another instance of Dog
+
+print(dog1.name, dog1.age, dog1.species)  # Access instance and class attributes
+print(dog2.name, dog2.age, dog2.species)  # Access instance and class attributes
+print(Dog.species)  # Access class attribute directly
+###########self.name: Refers to the name attribute of the object (dog1) calling the method.
+dog1.bark(): Calls the bark method on dog1
+
+__init__ method is the constructor in Python, automatically called when a new object is created.
+ It initializes the attributes of the class.
+In this example, we create a Dog class and use __init__ method to set the name and age of each dog when creating an object.
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+dog1 = Dog("Buddy", 3)
+print(dog1.name)
+
+Class Variables
+These are the variables that are shared across all instances of a class. It is defined at the class level, outside any methods. All objects of the class share the same value for a class variable unless explicitly overridden in an object.
+
+Instance Variables
+Variables that are unique to each instance (object) of a class. These are defined within the __init__ method or other instance methods. Each object maintains its own copy of instance variables, independent of other objects.
+
+Example: In this example, we create a Dog class to show difference between class variables and instance variables. We also demonstrate how modifying them affects objects differently.
+class Dog:
+    # Class variable
+    species = "Canine"
+
+    def __init__(self, name, age):
+        # Instance variables
+        self.name = name
+        self.age = age
+
+# Create objects
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Charlie", 5)
+
+# Access class and instance variables
+print(dog1.species)  # (Class variable)
+print(dog1.name)     # (Instance variable)
+print(dog2.name)     # (Instance variable)
+
+# Modify instance variables
+dog1.name = "Max"
+print(dog1.name)     # (Updated instance variable)
+
+# Modify class variable
+Dog.species = "Feline"
+print(dog1.species)  # (Updated class variable)
+print(dog2.species)
+
+#OUTPUT:Canine
+Buddy
+Charlie
+Max
+Feline
+Feline
+
+Class Variable (species): Shared by all instances of the class. Changing Dog.species affects all objects, as it's a property of the class itself.
+Instance Variables (name, age): Defined in the __init__ method. Unique to each instance (e.g., dog1.name and dog2.name are different).
+Accessing Variables: Class variables can be accessed via the class name (Dog.species) or an object (dog1.species). Instance variables are accessed via the object (dog1.name).
+Updating Variables: Changing Dog.species affects all instances. Changing dog1.name only affects dog1 and does not impact dog2.
+
+INHERITANCE
+
+
